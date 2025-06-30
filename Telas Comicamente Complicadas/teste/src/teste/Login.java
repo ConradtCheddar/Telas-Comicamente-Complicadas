@@ -80,17 +80,23 @@ public class Login extends JFrame {
 		JButton botaoLogin = new JButton("Login");
 		botaoLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (nome.equals(nomeText.getText()) && senha.equals(senhaText.getText())) {
-					Select select = new Select();
-					String message = String.format("login bem sucedido");
-			        dispose();
-			        JOptionPane.showMessageDialog(null, message, null, JOptionPane.INFORMATION_MESSAGE);
-			        select.setVisible(true);
-				}else {
-					String message = String.format("senha ou login incorretos");
-			        JOptionPane.showMessageDialog(null, message, null, JOptionPane.INFORMATION_MESSAGE);
-				}
-			}
+		        String nomeDigitado = nomeText.getText();
+		        String senhaDigitada = new String(senhaText.getPassword());
+
+		        if (nomeDigitado.isEmpty() || senhaDigitada.isEmpty()) {
+		            String message = String.format("Senha ou login não preenchido(s)");
+		            JOptionPane.showMessageDialog(null, message, null, JOptionPane.INFORMATION_MESSAGE);
+		        } else if (nomeDigitado.equals(nome) && senhaDigitada.equals(senha)) {
+		            Select select = new Select();
+		            String message = String.format("Login bem sucedido");
+		            dispose();
+		            JOptionPane.showMessageDialog(null, message, null, JOptionPane.INFORMATION_MESSAGE);
+		            select.setVisible(true);
+		        } else {
+		            String message = String.format("Senha ou login incorretos");
+		            JOptionPane.showMessageDialog(null, message, null, JOptionPane.INFORMATION_MESSAGE);
+		        }
+		    }
 		});
 		botaoLogin.setBounds(10, 264, 124, 36);
 		contentPane.add(botaoLogin);
@@ -98,13 +104,21 @@ public class Login extends JFrame {
 		JButton botaoCadastro = new JButton("Cadastro");
 		botaoCadastro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					nome = nomeText.getText();
-					senha = senhaText.getText();
-					System.out.println(nome);
-					System.out.println(senha);
-					String message = String.format("Cadastro bem sucedido");
-			        JOptionPane.showMessageDialog(null, message, null, JOptionPane.INFORMATION_MESSAGE);
-			}
+		        String nomeDigitado = nomeText.getText();
+		        String senhaDigitada = new String(senhaText.getPassword());
+
+		        if (nomeDigitado.isEmpty() || senhaDigitada.isEmpty()) {
+		            String message = String.format("Senha ou login não preenchido(s)");
+		            JOptionPane.showMessageDialog(null, message, null, JOptionPane.INFORMATION_MESSAGE);
+		        } else {
+		            nome = nomeDigitado;
+		            senha = senhaDigitada;
+		            System.out.println(nome);
+		            System.out.println(senha);
+		            String message = String.format("Cadastro bem sucedido");
+		            JOptionPane.showMessageDialog(null, message, null, JOptionPane.INFORMATION_MESSAGE);
+		        }
+		    }
 		});
 		botaoCadastro.setBounds(151, 264, 124, 36);
 		contentPane.add(botaoCadastro);
