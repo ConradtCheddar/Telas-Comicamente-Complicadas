@@ -50,8 +50,44 @@ public class Telefone extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
+		JLabel postalText = new JLabel("+000");
+		postalText.setHorizontalAlignment(SwingConstants.CENTER);
+		postalText.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		postalText.setBounds(56, 11, 71, 56);
+		contentPane.add(postalText);
+
+		JLabel DDDtext = new JLabel("(00)");
+		DDDtext.setHorizontalAlignment(SwingConstants.CENTER);
+		DDDtext.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		DDDtext.setBounds(137, 11, 61, 56);
+		contentPane.add(DDDtext);
+
+		JLabel firstNumText = new JLabel("0000");
+		firstNumText.setHorizontalAlignment(SwingConstants.CENTER);
+		firstNumText.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		firstNumText.setBounds(208, 11, 78, 56);
+		contentPane.add(firstNumText);
+
+		JLabel secondNumText = new JLabel("0000");
+		secondNumText.setHorizontalAlignment(SwingConstants.CENTER);
+		secondNumText.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		secondNumText.setBounds(306, 11, 83, 56);
+		contentPane.add(secondNumText);
+
+		JLabel Traco = new JLabel("-");
+		Traco.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		Traco.setHorizontalAlignment(SwingConstants.CENTER);
+		Traco.setBounds(289, 22, 23, 34);
+		contentPane.add(Traco);
+
 		JComboBox postalBox = new JComboBox();
+		postalBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String postal = (String) postalBox.getSelectedItem();
+				postalText.setText(postal);
+			}
+		});
 		postalBox.setBounds(56, 84, 71, 22);
 		contentPane.add(postalBox);
 		for (int i = 0 ; i <= 999 ; i++) {
@@ -66,8 +102,14 @@ public class Telefone extends JFrame {
 				postalBox.addItem(C);
 			}
 		}
-		
+
 		JComboBox DDDbox = new JComboBox();
+		DDDbox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String DDD = (String) DDDbox.getSelectedItem();
+				DDDtext.setText(DDD);
+			}
+		});
 		DDDbox.setBounds(137, 84, 61, 22);
 		contentPane.add(DDDbox);
 		for (int i = 0 ; i <= 99 ; i++) {
@@ -79,8 +121,14 @@ public class Telefone extends JFrame {
 				DDDbox.addItem(C);
 			}
 		}
-		
+
 		JComboBox firstNumBox = new JComboBox();
+		firstNumBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String firstNum = (String) firstNumBox.getSelectedItem();
+				firstNumText.setText(firstNum);
+			}
+		});
 		firstNumBox.setBounds(203, 84, 83, 22);
 		contentPane.add(firstNumBox);
 		for (int i = 0 ; i <= 9999 ; i++) {
@@ -98,9 +146,15 @@ public class Telefone extends JFrame {
 				firstNumBox.addItem(C);
 			}
 		}
-		
-		
+
+
 		JComboBox secondNumBox = new JComboBox();
+		secondNumBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String secondNum = (String) secondNumBox.getSelectedItem();
+				secondNumText.setText(secondNum);
+			}
+		});
 		secondNumBox.setBounds(306, 84, 83, 22);
 		contentPane.add(secondNumBox);
 		for (int i = 0 ; i <= 9999 ; i++) {
@@ -118,7 +172,7 @@ public class Telefone extends JFrame {
 				secondNumBox.addItem(C);
 			}
 		}
-		
+
 		JButton Confirmar = new JButton("Confirmar");
 		Confirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -127,44 +181,12 @@ public class Telefone extends JFrame {
 				String firstNum = (String) firstNumBox.getSelectedItem();
 				String secondNum = (String) secondNumBox.getSelectedItem();
 				String message = ("seu numero de telefone, "+postal+" "+DDD+" "+firstNum+"-"+secondNum+", foi cadastrado");
-		        JOptionPane.showMessageDialog(null, message, null, JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, message, null, JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		Confirmar.setBounds(25, 197, 165, 53);
 		contentPane.add(Confirmar);
-		
-		
-		
-		JLabel postalText = new JLabel("+00");
-		postalText.setHorizontalAlignment(SwingConstants.CENTER);
-		postalText.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		postalText.setBounds(56, 11, 71, 56);
-		contentPane.add(postalText);
-		
-		JLabel DDDtext = new JLabel("(00)");
-		DDDtext.setHorizontalAlignment(SwingConstants.CENTER);
-		DDDtext.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		DDDtext.setBounds(137, 11, 61, 56);
-		contentPane.add(DDDtext);
-		
-		JLabel firstNumText = new JLabel("0000");
-		firstNumText.setHorizontalAlignment(SwingConstants.CENTER);
-		firstNumText.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		firstNumText.setBounds(208, 11, 78, 56);
-		contentPane.add(firstNumText);
-		
-		JLabel secondNumText = new JLabel("0000");
-		secondNumText.setHorizontalAlignment(SwingConstants.CENTER);
-		secondNumText.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		secondNumText.setBounds(306, 11, 83, 56);
-		contentPane.add(secondNumText);
-		
-		JLabel Traco = new JLabel("-");
-		Traco.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		Traco.setHorizontalAlignment(SwingConstants.CENTER);
-		Traco.setBounds(289, 22, 23, 34);
-		contentPane.add(Traco);
-		
+
 		JButton voltarButton = new JButton("Voltar");
 		voltarButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
