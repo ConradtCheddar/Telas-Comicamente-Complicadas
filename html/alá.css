@@ -1,4 +1,4 @@
-#but:hover{
+.but:hover{
     
     transform: rotate(360000000deg);
     transition: 10000s;
@@ -6,6 +6,9 @@
 .divLogin{
     display: grid;
     place-items: center;
+}
+#imagem{
+    display: none;
 }
 * {
     margin: 0;

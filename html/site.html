@@ -1,53 +1,67 @@
 <html>
 <head>  
 <link rel="stylesheet" href="alá.css">
-
 </head>
-    <title>
-        Login
-    </title>
-    <body>
-        <div class = "divLogin">
-        <h1 id="but">
-            Login
-        </h1>
-            <label for="usuario", id="but">Usuario</label>
-        <input type="text", id="but">
+<title>Login</title>
+<body>
+    <div class="divLogin">
+        <h1 class="but" id="lblLogin">Login</h1>
+        <label class="but" for="usuario" id="lblUsuario">Usuario</label>
+        <input class="but" type="text" id="txtUsuario">
         <br>
-        <label for="senha", id="but">Senha</label>
-        <input type="password", id="but">
-        <br>
-        <br>
-        <input type="button", value="Logar", id="but">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <img onclick="trocarImagem()" src="Vermelho_240.webp" alt="red" height="200px" width="200px" id="imagem"> <img src="catavento.jpg" alt="catavento" id="but">
-        <br>
-        <br>
-        <br>
-        <div class="container">
-        <div class="box-card">
-            <div class="face front"><img onclick="trocarImagem()" src="Vermelho_240.webp" alt="red" height="200px" width="200px" id="imagem"></div>
-            <div class="face back"><img onclick="trocarImagem()" src="Vermelho_240.webp" alt="red" height="200px" width="200px" id="imagem"></div>
-            <div class="face right"><img onclick="trocarImagem()" src="Vermelho_240.webp" alt="red" height="200px" width="200px" id="imagem"></div>
-            <div class="face left"><img onclick="trocarImagem()" src="Vermelho_240.webp" alt="red" height="200px" width="200px" id="imagem"></div>
-            <div class="face top"><img onclick="trocarImagem()" src="Vermelho_240.webp" alt="red" height="200px" width="200px" id="imagem"></div>
-            <div class="face bottom"><img onclick="trocarImagem()" src="Vermelho_240.webp" alt="red" height="200px" width="200px" id="imagem"></div>
+        <label class="but" for="senha" id="lblSenha">Senha</label>
+        <input class="but" type="password" id="txtSenha">
+        <br><br>
+        <input class="but" type="button" value="Logar" id="buttonLogar" onclick="Clicar()">
+        <br><br><br><br><br>
+
+        <!-- imagem fora do cubo -->
+        <img class="but" src="catavento.jpg" alt="catavento" id="imagem">
+
+        <br><br><br>
+
+        <!-- cubo -->
+        <div class="container" onclick="trocarTodas()" id="imagem">
+            <div class="box-card">
+                <div class="face front"><img src="Vermelho_240.webp" alt="red" height="200px" width="200px" class="vermelho"></div>
+                <div class="face back"><img src="Vermelho_240.webp" alt="red" height="200px" width="200px" class="vermelho"></div>
+                <div class="face right"><img src="Vermelho_240.webp" alt="red" height="200px" width="200px" class="vermelho"></div>
+                <div class="face left"><img src="Vermelho_240.webp" alt="red" height="200px" width="200px" class="vermelho"></div>
+                <div class="face top"><img src="Vermelho_240.webp" alt="red" height="200px" width="200px" class="vermelho"></div>
+                <div class="face bottom"><img src="Vermelho_240.webp" alt="red" height="200px" width="200px" class="vermelho"></div>
+            </div>
         </div>
     </div>
-        </div>
-        <script>
-        function trocarImagem() {
-            var imagem = document.getElementById('imagem');
-            if (imagem.src.match("Vermelho_240.webp")) {
-                imagem.src = "bomba.jpg";  
-            } else {
-                imagem.src = "Vermelho_240.webp";  
+
+    <script>
+        var usuario = "admin";
+        var senha = "1234";
+        let botaoClick = false;
+        document.getElementById("buttonLogar").addEventListener("click", function(){
+            botaoClick = true;
+            alert("sigma");
+             if (botaoClick == true) {
+            if (usuario == document.getElementById("txtUsuario").value && senha == document.getElementById("txtSenha").value) {
+                document.getElementById("imagem").style.display = "block";
+            }else{
+                alert("senha invalida");
             }
         }
+        })
+
+       
+        
+
+    function trocarTodas() {
+        let imagens = document.querySelectorAll('.vermelho');
+        imagens.forEach(img => {
+            if (img.src.includes("Vermelho_240.webp")) {
+                img.src = "bomba.jpg";
+            } else {
+                img.src = "Vermelho_240.webp";
+            }
+        });
+    }
     </script>
-    </body>
+</body>
 </html>
