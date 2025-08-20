@@ -10,6 +10,9 @@
 #imagem{
     display: none;
 }
+#cubo{
+    display: none;
+}
 * {
     margin: 0;
     padding: 0;
