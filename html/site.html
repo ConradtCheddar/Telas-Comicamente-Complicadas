@@ -24,24 +24,30 @@
         <br>
         <br>
         <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <img src="catavento.jpg" alt="catavento" id="but">
+        <img onclick="trocarImagem()" src="Vermelho_240.webp" alt="red" height="200px" width="200px" id="imagem"> <img src="catavento.jpg" alt="catavento" id="but">
         <br>
         <br>
         <br>
         <div class="container">
         <div class="box-card">
-            <div class="face front"><img src="Vermelho_240.webp" alt="red" height="200px" width="200px"></div>
-            <div class="face back"><img src="Vermelho_240.webp" alt="red" height="200px" width="200px"></div>
-            <div class="face right"><img src="Vermelho_240.webp" alt="red" height="200px" width="200px"></div>
-            <div class="face left"><img src="Vermelho_240.webp" alt="red" height="200px" width="200px"></div>
-            <div class="face top"><img src="Vermelho_240.webp" alt="red" height="200px" width="200px"></div>
-            <div class="face bottom"><img src="Vermelho_240.webp" alt="red" height="200px" width="200px"></div>
+            <div class="face front"><img onclick="trocarImagem()" src="Vermelho_240.webp" alt="red" height="200px" width="200px" id="imagem"></div>
+            <div class="face back"><img onclick="trocarImagem()" src="Vermelho_240.webp" alt="red" height="200px" width="200px" id="imagem"></div>
+            <div class="face right"><img onclick="trocarImagem()" src="Vermelho_240.webp" alt="red" height="200px" width="200px" id="imagem"></div>
+            <div class="face left"><img onclick="trocarImagem()" src="Vermelho_240.webp" alt="red" height="200px" width="200px" id="imagem"></div>
+            <div class="face top"><img onclick="trocarImagem()" src="Vermelho_240.webp" alt="red" height="200px" width="200px" id="imagem"></div>
+            <div class="face bottom"><img onclick="trocarImagem()" src="Vermelho_240.webp" alt="red" height="200px" width="200px" id="imagem"></div>
         </div>
     </div>
         </div>
+        <script>
+        function trocarImagem() {
+            var imagem = document.getElementById('imagem');
+            if (imagem.src.match("Vermelho_240.webp")) {
+                imagem.src = "bomba.jpg";  
+            } else {
+                imagem.src = "Vermelho_240.webp";  
+            }
+        }
+    </script>
     </body>
 </html>

@@ -1,7 +1,7 @@
 #but:hover{
     
-    transform: rotate(3600000deg);
-    transition: 100s;
+    transform: rotate(360000000deg);
+    transition: 10000s;
 }
 .divLogin{
     display: grid;
@@ -98,32 +98,32 @@ body {
 
 .front {
     transform: translateZ(100px);
-    border-color: #646cff;
+    border-color: #FF0000;
 }
 
 .back {
     transform: translateZ(-100px) rotateY(180deg);
-    border-color: #00bcd4;
+    border-color: #FF0000;
 }
 
 .right {
     transform: translateX(100px) rotateY(90deg);
-    border-color: #4caf50;
+    border-color: #FF0000;
 }
 
 .left {
     transform: translateX(-100px) rotateY(-90deg);
-    border-color: #ff4081;
+    border-color:#FF0000;
 }
 
 .top {
     transform: translateY(-100px) rotateX(90deg);
-    border-color: #ffc107;
+    border-color: #FF0000;
 }
 
 .bottom {
     transform: translateY(100px) rotateX(-90deg);
-    border-color: #9c27b0;
+    border-color: #FF0000;
 }
 
 @keyframes rotate3d {
