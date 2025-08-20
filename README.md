@@ -1,1 +1,1 @@
-A primeira tela é a tela menu.java
+treino com telas
