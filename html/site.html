@@ -19,7 +19,7 @@
         <br><br><br><br><br>
 
         <!-- bomba -->
-        <img src="bombaP.jpg" alt="bomba" id="bomba">
+        <img src="bombaP.jpg" alt="bomba" onclick="explodir()" id="bomba">
 
 
         <!-- catavento -->
@@ -81,6 +81,17 @@
             }
         }
         })
+    function explodir(){
+        let imagens = document.querySelectorAll('#bomba');
+        imagens.forEach(img => {
+           if (img.src.includes("bombaP.jpg")) {
+                img.src = "explosaoPNG.avif";
+            } else {
+                img.src = "bombaP.jpg";
+            }
+        });
+        
+    }
 
     function trocarTodas() {
         let imagens = document.querySelectorAll('.red');
