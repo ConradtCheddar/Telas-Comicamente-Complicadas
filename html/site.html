@@ -1,25 +1,30 @@
 <html>
-<head>  
-<link rel="stylesheet" href="alá.css">
+
+<head>
+    <link rel="stylesheet" href="alá.css">
 </head>
 <title>Login</title>
+
 <body>
     <div class="divLogin">
         <div class="Telalogin">
-        <h1 class="but" id="lblLogin">login</h1>
-        <br>
-        <label class="but" for="usuario" id="lblUsuario">Usuario</label>
-        <input class="but" type="text" id="txtUsuario">
-        <br>
-        <label class="but" for="senha" id="lblSenha">Senha</label>
-        <input class="but" type="password" id="txtSenha">
-        <br><br>
-        <input class="but" type="button" value="Logar" id="buttonLogar" onclick="Clicar()">
+            <h1 class="but" id="lblLogin">login</h1>
+            <br>
+            <label class="but" for="usuario" id="lblUsuario">Usuario</label>
+            <input class="but" type="text" id="txtUsuario">
+            <br>
+            <label class="but" for="senha" id="lblSenha">Senha</label>
+            <input class="but" type="password" id="txtSenha">
+            <br><br>
+            <input class="but" type="button" value="Logar" id="buttonLogar" onclick="Clicar()">
         </div>
         <br><br><br><br><br>
 
         <!-- bomba -->
-        <img src="bombaP.jpg" alt="bomba" onclick="explodir()" id="bomba">
+        <div class="bomba-container" id="bomba-container" style="display:none;" onclick="explodir()">
+            <img src="bombaP.jpg" id="bomba" class="ativo">
+            <img src="explosaoPNG.avif" id="explosao">
+        </div>
 
 
         <!-- catavento -->
@@ -30,12 +35,18 @@
         <!-- cubo -->
         <div class="conteinerCubo" onclick="trocarTodas()" id="cubo">
             <div class="box-card">
-                <div class="face front"><img src="Vermelho_240.webp" alt="red" height="200px" width="200px" class="red"></div>
-                <div class="face back"><img src="blue-removebg-preview.png" alt="red" height="200px" width="200px" class="blue"></div>
-                <div class="face right"><img src="bomba-removebg-preview.png" alt="red" height="200px" width="200px" class="bomba"></div>
-                <div class="face left"><img src="green-removebg-preview.png" alt="red" height="200px" width="200px" class="green"></div>
-                <div class="face top"><img src="white-removebg-preview.png" alt="red" height="200px" width="200px" class="white"></div>
-                <div class="face bottom"><img src="chuck-removebg-preview.png" alt="red" height="200px" width="200px" class="chuck"></div>
+                <div class="face front"><img src="Vermelho_240.webp" alt="red" height="200px" width="200px" class="red">
+                </div>
+                <div class="face back"><img src="blue-removebg-preview.png" alt="red" height="200px" width="200px"
+                        class="blue"></div>
+                <div class="face right"><img src="bomba-removebg-preview.png" alt="red" height="200px" width="200px"
+                        class="bomba"></div>
+                <div class="face left"><img src="green-removebg-preview.png" alt="red" height="200px" width="200px"
+                        class="green"></div>
+                <div class="face top"><img src="white-removebg-preview.png" alt="red" height="200px" width="200px"
+                        class="white"></div>
+                <div class="face bottom"><img src="chuck-removebg-preview.png" alt="red" height="200px" width="200px"
+                        class="chuck"></div>
             </div>
         </div>
 
@@ -44,105 +55,108 @@
         <!--carta-->
         <div class="card" id="carta">
             <div class="card-inner">
-            <div class="card-front"><img src="magic.jpg" alt="magic" height="250px" width="200px"></div>
-            <div class="card-back"><img src="gardevoir.png" alt="pokemon" height="250px" width="200px"></div>
-        </div>
+                <div class="card-front"><img src="magic.jpg" alt="magic" height="250px" width="200px"></div>
+                <div class="card-back"><img src="gardevoir.png" alt="pokemon" height="250px" width="200px"></div>
+            </div>
 
-         <br><br><br>
-        
+            <br><br><br>
+
         </div>
         <!--divisor-->
         <div class="containerDivisor" id="partido">
             <div class="split-image-container">
-            <div class="quadrant quadrant-1"></div>
-            <div class="quadrant quadrant-2"></div>
-            <div class="quadrant quadrant-3"></div>
-            <div class="quadrant quadrant-4"></div>
+                <div class="quadrant quadrant-1"></div>
+                <div class="quadrant quadrant-2"></div>
+                <div class="quadrant quadrant-3"></div>
+                <div class="quadrant quadrant-4"></div>
+            </div>
         </div>
-    </div> 
-</div>
+    </div>
 
     <script>
         var usuario = "admin";
         var senha = "1234";
         let botaoClick = false;
-        document.getElementById("buttonLogar").addEventListener("click", function(){
+        document.getElementById("buttonLogar").addEventListener("click", function () {
             botaoClick = true;
-             if (botaoClick == true) {
-            if (usuario == document.getElementById("txtUsuario").value && senha == document.getElementById("txtSenha").value) {
-                document.getElementById("imagem").style.display = "block";
-                document.getElementById("cubo").style.display = "block";
-                document.getElementById("carta").style.display = "block";
-                document.getElementById("partido").style.display = "block";
-                document.getElementById("bomba").style.display = "block";
-                document.querySelector(".Telalogin").style.display = "none"
-            }else{
-                alert("senha ou usuario invalidos");
+            if (botaoClick == true) {
+                if (usuario == document.getElementById("txtUsuario").value && senha == document.getElementById("txtSenha").value) {
+                    document.getElementById("imagem").style.display = "block";
+                    document.getElementById("cubo").style.display = "block";
+                    document.getElementById("carta").style.display = "block";
+                    document.getElementById("partido").style.display = "block";
+                    document.getElementById("bomba-container").style.display = "block";
+                    document.querySelector(".Telalogin").style.display = "none"
+                } else {
+                    alert("senha ou usuario invalidos");
+                }
+            }
+        })
+        function explodir() {
+            const bomba = document.getElementById("bomba");
+            const explosao = document.getElementById("explosao");
+
+            if (bomba.classList.contains("ativo")) {
+                bomba.classList.remove("ativo");
+                explosao.classList.add("ativo");
+            } else {
+                explosao.classList.remove("ativo");
+                bomba.classList.add("ativo");
             }
         }
-        })
-    function explodir(){
-        let imagens = document.querySelectorAll('#bomba');
-        imagens.forEach(img => {
-           if (img.src.includes("bombaP.jpg")) {
-                img.src = "explosaoPNG.avif";
-            } else {
-                img.src = "bombaP.jpg";
-            }
-        });
-        
-    }
 
-    function trocarTodas() {
-        let imagens = document.querySelectorAll('.red');
-        imagens.forEach(img => {
-            if (img.src.includes("Vermelho_240.webp")) {
-                img.src = "redR.jpg";
-            } else {
-                img.src = "Vermelho_240.webp";
-            }
-        });
-        imagens = document.querySelectorAll('.blue');
-        imagens.forEach(img => {
-            if (img.src.includes("blue-removebg-preview.png")) {
-                img.src = "blueR.jpg";
-            } else {
-                img.src = "blue-removebg-preview.png";
-            }
-        });
-        imagens = document.querySelectorAll('.bomba');
-        imagens.forEach(img => {
-           if (img.src.includes("bomba-removebg-preview.png")) {
-                img.src = "bombaR.jpg";
-            } else {
-                img.src = "bomba-removebg-preview.png";
-            }
-        });
-        imagens = document.querySelectorAll('.green');
-        imagens.forEach(img => {
-           if (img.src.includes("green-removebg-preview.png")) {
-                img.src = "greenR.jpg";
-            } else {
-                img.src = "green-removebg-preview.png";
-            }
-        });
-        imagens = document.querySelectorAll('.white');
-        imagens.forEach(img => {
-           if (img.src.includes("white-removebg-preview.png")) {
-                img.src = "whiteR.jpg";
-            } else {
-                img.src = "white-removebg-preview.png";
-            }
-        });
-        imagens = document.querySelectorAll('.chuck');
-        imagens.forEach(img => {
-           if (img.src.includes("chuck-removebg-preview.png")) {
-                img.src = "chuckR.jpg";
-            } else {
-                img.src = "chuck-removebg-preview.png";
-            }
-        });      
-    }
+
+        function trocarTodas() {
+            let imagens = document.querySelectorAll('.red');
+            imagens.forEach(img => {
+                if (img.src.includes("Vermelho_240.webp")) {
+                    img.src = "redR.jpg";
+                } else {
+                    img.src = "Vermelho_240.webp";
+                }
+            });
+            imagens = document.querySelectorAll('.blue');
+            imagens.forEach(img => {
+                if (img.src.includes("blue-removebg-preview.png")) {
+                    img.src = "blueR.jpg";
+                } else {
+                    img.src = "blue-removebg-preview.png";
+                }
+            });
+            imagens = document.querySelectorAll('.bomba');
+            imagens.forEach(img => {
+                if (img.src.includes("bomba-removebg-preview.png")) {
+                    img.src = "bombaR.jpg";
+                } else {
+                    img.src = "bomba-removebg-preview.png";
+                }
+            });
+            imagens = document.querySelectorAll('.green');
+            imagens.forEach(img => {
+                if (img.src.includes("green-removebg-preview.png")) {
+                    img.src = "greenR.jpg";
+                } else {
+                    img.src = "green-removebg-preview.png";
+                }
+            });
+            imagens = document.querySelectorAll('.white');
+            imagens.forEach(img => {
+                if (img.src.includes("white-removebg-preview.png")) {
+                    img.src = "whiteR.jpg";
+                } else {
+                    img.src = "white-removebg-preview.png";
+                }
+            });
+            imagens = document.querySelectorAll('.chuck');
+            imagens.forEach(img => {
+                if (img.src.includes("chuck-removebg-preview.png")) {
+                    img.src = "chuckR.jpg";
+                } else {
+                    img.src = "chuck-removebg-preview.png";
+                }
+            });
+        }
     </script>
 </body>
+
 </html>

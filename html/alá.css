@@ -1,5 +1,5 @@
 .but:hover{
-    
+
     transform: rotate(36000000000000deg);
     transition: 100s;
 }
@@ -13,11 +13,34 @@
     top: 100;
     left: 100;
 }
-#bomba{
-    display: none;
-    position: fixed;
-    place-self: center;
+.bomba-container {
+  display: none;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
 }
+
+.bomba-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 5s ease;
+}
+
+.bomba-container img.ativo {
+  opacity: 1;
+  z-index: 2;
+}
+#bomba{
+  place-items: center;
+}
+#explosao{
+  transform: translate(-36%, -36%);
+}
+
 #cubo{
     display: none;
     position: fixed;
